@@ -1,84 +1,60 @@
-
-// Вариант 61.
-// Автор: Yaroslav Aksenov, ПИ-53
-// Yaroslav Aksenov, ПИ-53.
+// Team project. Group PI-53.
+// Team: Yaroslav (v. 61), Zahar (v. 59, tech lead).
 #include <iostream>
-#include <clocale>  
+// === БЛОК ПОДКЛЮЧЕНИЙ ===
+#include "tiko.h"    // Функции варианта 59
+#include "friend.h"  // Функции варианта 61 (cToK, kToC)
+// === КОНЕЦ БЛОКА ПОДКЛЮЧЕНИЙ ===
 using namespace std;
 
-
-double cToF(double c) {
-    return c * 9.0 / 5.0 + 32.0;
-}
-
-double fToC(double f) {
-    return (f - 32.0) * 5.0 / 9.0;
-}
-
-double cToK(double c) {
-    return c + 273.15;
-}
-
-double kToC(double k) {
-    return k - 273.15;
-}
-
 int main() {
-
-    setlocale(LC_ALL, "Russian");
-
     int choice;
     double value;
-
     do {
-        cout << "\n=== КОНВЕРТЕР ТЕМПЕРАТУР (Вариант 61) ===\n";
-        cout << "1. Цельсий -> Фаренгейт\n";
-        cout << "2. Фаренгейт -> Цельсий\n";
-        cout << "3. Цельсий -> Кельвин\n";      
-        cout << "4. Кельвин -> Цельсий\n";       
-
-        cout << "0. Выход\n";
-        cout << "Выберите пункт: ";
+        cout << "\n=== Team project: calculations ===\n";
+        // === БЛОК МЕНЮ ===
+        cout << "1. Square root (Heron's method)\n";
+        cout << "2. Cube root\n";
+        cout << "3. Celsius - Kelvin\n";
+        cout << "4. Kelvin - Celsius\n";
+        // === КОНЕЦ БЛОКА МЕНЮ ===
+        cout << "0. Exit\n";
+        cout << "Choose item: ";
         cin >> choice;
 
         switch (choice) {
-        case 1:
-            cout << "Введите температуру в Цельсиях: ";
-            cin >> value;
-            cout << value << " °C = " << cToF(value) << " °F\n";
-            break;
-        case 2:
-            cout << "Введите температуру в Фаренгейтах: ";
-            cin >> value;
-            cout << value << " °F = " << fToC(value) << " °C\n";
-            break;
-        case 3: 
-            cout << "Введите температуру в Цельсиях: ";
-            cin >> value;
-            cout << value << " °C = " << cToK(value) << " K\n";
-            break;
-        case 4: 
-            cout << "Введите температуру в Кельвинах: ";
-            cin >> value;
-            if (value < 0) {
-                cout << "Ошибка: температура не может быть ниже 0 K\n";
+            // === БЛОК ОБРАБОТКИ ===
+            case 1: {
+                // Код напарника (вариант 59)
+                break;
             }
-            else {
-                cout << value << " K = " << kToC(value) << " °C\n";
+            case 2: {
+                // Код напарника (вариант 59)
+                break;
             }
-            break;
-        case 0:
-            cout << "Работа завершена.\n";
-            break;
-        default:
-            cout << "Такого пункта нет.\n";
+            case 3: {
+                cout << "Enter temperature in Celsius: ";
+                cin >> value;
+                cout << value << " C = " << cToK(value) << " K\n";
+                break;
+            }
+            case 4: {
+                cout << "Enter temperature in Kelvin: ";
+                cin >> value;
+                if (value < 0) {
+                    cout << "Error: temperature cannot be below 0 K\n";
+                } else {
+                    cout << value << " K = " << kToC(value) << " C\n";
+                }
+                break;
+            }
+            // === КОНЕЦ БЛОКА ОБРАБОТКИ ===
+            case 0:
+                cout << "Work finished.\n";
+                break;
+            default:
+                cout << "No such item.\n";
         }
     } while (choice != 0);
-
     return 0;
 }
-
-
-
-
-
