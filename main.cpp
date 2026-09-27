@@ -25,11 +25,21 @@ int main() {
         switch (choice) {
             // === БЛОК ОБРАБОТКИ ===
             case 1: {
-                // Код напарника (вариант 59)
+                double x;
+                cout << "Enter x (x >= 0): ";
+                cin >> x;
+                if (x < 0) {
+                    cout << "Error: x must be non-negative.\n";
+                } else {
+                    cout << "sqrt(" << x << ") = " << sqrtHeron(x) << "\n";
+                }
                 break;
             }
             case 2: {
-                // Код напарника (вариант 59)
+                double x;
+                cout << "Enter x: ";
+                cin >> x;
+                cout << "cbrt(" << x << ") = " << cubeRoot(x) << "\n";
                 break;
             }
             case 3: {
